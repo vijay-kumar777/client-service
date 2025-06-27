@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     public String getStatus() {
-        return "Project is up and running!";
+        return "https://github.com/vijay-kumar777/client-service" +
+                "Project is up and running!";
     }
 }
