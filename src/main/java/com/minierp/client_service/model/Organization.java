@@ -6,31 +6,23 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "organization")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+public class Organization {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "organization_id", nullable = false)
-    private Organization organization;
-
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
-    @Column(name = "email_address", nullable = false, unique = true)
-    private String emailAddress;
-
-    @Column(nullable = false)
-    private String password;
+    private String name;
+    private String title;
+    private String logo;
+    private String address;
+    private String email;
+    private String phone;
+    private String gst;
 
     private int isDeleted = 0;
     private int isActive = 1;
