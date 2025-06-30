@@ -3,14 +3,15 @@ package com.minierp.client_service.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "purchase_order")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+public class PurchaseOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,17 +21,13 @@ public class Users {
     @JoinColumn(name = "organization_id", nullable = false)
     private Organization organization;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
+    @ManyToOne
+    @JoinColumn(name = "transaction_id", nullable = false)
+    private Transactors transaction;
 
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
-    @Column(name = "email_address", nullable = false, unique = true)
-    private String emailAddress;
-
-    @Column(nullable = false)
-    private String password;
+    private String transactionName;
+    private String transactionAddress;
+    private LocalDate orderDate;
 
     private int isDeleted = 0;
     private int isActive = 1;
